@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    html           { height: 100%; margin: 0; overflow: hidden; }
+    body           { padding: 0 0 0 233px; margin: 0; height: 100%; font-family: sans-serif; }
+    a, a:visited   { color: #136282; text-decoration: none; cursor: pointer; }
+    a:hover        { background: #f5f5f5; }
+    li             { list-style: none; }
+    li a           { display: block; padding: 2px 28px 2px 0;}
+    li a.selected  { background: #f5f5f5; color: #888; }
+    ul             { padding: 0; margin-top: 0; }
+    h2             { margin-top: 20px; margin-bottom: .5em; font-size: 1em; }
+    h2:first-child { margin-top: 0; }
+    #nav           { position: fixed; overflow-y: scroll; font-size: .8em; top: 0; bottom: 0; left: 0; background: white; padding-left: 20px; margin-top: 232px; }
+    #artwork       { width: 194px; height: 194px; position: fixed; top: 0; left: 0; padding: 20px; z-index: 999; background: white; } 
+    .shaded        { box-shadow: inset 0px 10px 35px -11px rgba(0, 0, 0, .1); }
+    iframe         { width: 100%; height: 100%; border: 0; padding: 10px; background: #f5f5f5; box-sizing: border-box; }
+  </style>
+  <head>
+    <title>My Chord Book</title>
+    <meta charset="UTF-8">
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script>
+      $(document).ready(function(){
+        $("li a").click(function(e) {
+          e.preventDefault();
+          $("iframe").attr("src", $(this).attr("href"));
+          $("li a").removeClass("selected");
+          $(this).addClass("selected");
+          
+          var image = $(this).attr("title");
+          if (image)
+            $("#artwork").attr("src", image);
+          else
+            $("#artwork").attr("src", "images/default.jpg");
+        });
+
+        $("#nav").scroll(function() {
+          if ($(this).scrollTop() == 0)
+            $(this).removeClass("shaded");
+          else
+            $(this).addClass("shaded");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <iframe src=""></iframe>
+    </div>
+
+      <img src="images/default.jpg" id="artwork">
+
+
+    <div id="nav">
+
+      <h2 id="cohen">Leonard Cohen</h2>
+      <ul>
+        <li><a href="chords/raincoat.txt" title="images/cohen.jpg">Famous Blue Raincoat</a></li>
+        <li><a href="chords/joan.txt" title="images/cohen.jpg">Joan Of Arc</a></li>
+        <li><a href="chords/Everybody_knows.txt" title="images/cohen.jpg">Everybody Knows</a></li>
+        <li><a href="chords/No_way_to_say_goodbye.txt" title="images/cohen.jpg">No Way To Say Goodbye</a></li>
+        <li><a href="chords/To_the_end_of_love.txt" title="images/cohen.jpg">To The End Of Love</a></li>
+        <li><a href="chords/faith.txt" title="images/cohen.jpg">The Faith</a></li>
+        <li><a href="chords/first_we_take_manhatten.txt" title="images/cohen.jpg">First We Take Manhatten</a></li>
+        <li><a href="chords/if_it_be_your_will.txt" title="images/cohen.jpg">If It Be Your Will</a></li>
+      </ul>
+
+      <h2 id="dylan">Bob Dylan</h2>
+      <ul>
+        <li><a href="chords/baby_blue.txt" title="images/backhome.jpg">It's All Over Now, Baby Blue</a></li>
+        <li><a href="chords/visions.txt" title="images/blonde.jpg">Visions Of Johanna</a></li>
+        <li><a href="chords/wind.txt" title="images/blonde.jpg">Blowing In The Wind</a></li>
+        <li><a href="chords/want.txt" title="images/blonde.jpg">I Want You</a></li>
+        <li><a href="chords/times.txt" title="images/blonde.jpg">The Times They Are A Changin'</a></li>
+        <li><a href="chords/things.txt" title="images/blonde.jpg">Things Have Changed</a></li>
+        <li><a href="chords/tambourine.txt" title="images/blonde.jpg">Mr. Tambourine Man</a></li>
+        <li><a href="chords/stone.txt" title="images/blonde.jpg">Positively 4th Street</a></li>
+        <li><a href="chords/masters.txt" title="images/blonde.jpg">Masters Of War</a></li>
+        <li><a href="chords/rolling_stone.txt" title="images/blonde.jpg">Like A Rolling Stone</a></li>
+        <li><a href="chords/homesick.txt" title="images/blonde.jpg">Subterean Homesick Blues</a></li>
+        <li><a href="chords/just_like.txt" title="images/blonde.jpg">Just Like A Woman</a></li>
+      </ul>
+
+      <h2 id="townes">Townes Van Zandt</h2>
+      <ul>
+        <li><a href="chords/fare_the.txt" title="images/townes.jpg">Fare Thee Well, Miss Carousel</a></li>
+        <li><a href="chords/at_my_window.txt" title="images/townes.jpg">At My Window</a></li>
+        <li><a href="chords/my_proud.txt" title="images/townes.jpg">My Proud Mountains</a></li>
+        <li><a href="chords/cocaine.txt" title="images/townes.jpg">Cocaine</a></li>
+      </ul>
+
+      <h2 id="dead">The Grateful Dead</h2>
+      <ul>
+        <li><a href="chords/friendofthedevil.txt" title="images/dead.jpg">Friend Of The Devil</a></li>
+        <li><a href="chords/caseyjones.txt" title="images/dead.jpg">Casey Jones</a></li>
+        <li><a href="chords/truckin.txt" title="images/dead.jpg">Truckin'</a></li>
+        <li><a href="chords/bobby.txt" title="images/dead.jpg">Me And Bobby McGee</a></li>
+        <li><a href="chords/samson.txt" title="images/dead.jpg">Samson And Delilah</a></li>
+        <li><a href="chords/dupree.txt" title="images/dead.jpg">Dupree's Diamond Blues</a></li>
+      </ul>
+
+      <h2 id="rock">Misc. Rock</h2>
+      <ul>
+        <li><a href="chords/tom.txt" title="images/rush.jpg">Tom Sawyer</a></li>
+        <li><a href="chords/teen.txt" title="images/nirvana.jpg">Smells Like Teen Spirit</a></li>
+        <li><a href="chords/seven.txt" title="images/stripes.jpg">Seven Nation Army</a></li>
+      </ul>
+
+      <h2 id="russian">Russian</h2>
+      <ul>
+        <li><a href="chords/koster.html">Костер</a></li>
+        <li><a href="chords/jacket.html">Старый пиджак</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
